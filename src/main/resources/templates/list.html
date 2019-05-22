@@ -5,22 +5,33 @@
     <title>List of Customers</title>
 </head>
 <body>
+    <form th:action="@{/search}" method="post">
+        Enter Name<input type="text" name="lastname"/>
+        <input type="submit" value="Search"/>
+    </form>
+
     <table>
         <thead>
             <th>Title</th>
             <th>Full Name</th>
             <th>Address</th>
             <th>City</th>
+            <th>State</th>
+            <th>Zipcode</th>
             <th>Email Address</th>
+            <th>Company</th>
             <th>Position</th>
         </thead>
         <tbody>
             <tr th:each="customer: ${customers}">
                 <td th:text="${customer.title}"></td>
-                <td th:inline="text">[[${customer.firstName}]] [[${customer.lastName}</td>
+                <td th:inline="text">[[${customer.firstName}]] [[${customer.lastName}]]</td>
                 <td th:text="${customer.address}"></td>
                 <td th:text="${customer.city}"></td>
+                <td th:text="${customer.state}"></td>
+                <td th:text="${customer.zipcode}"></td>
                 <td th:text="${customer.email}"></td>
+                <td th:text="${customer.company}"></td>
                 <td th:text="${customer.position}"></td>
             </tr>
         </tbody>

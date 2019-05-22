@@ -2,4 +2,9 @@ package com.example.customerapp;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface CustomerRepository extends CrudRepository<Customer, Long> {}
+import java.util.ArrayList;
+
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
+//    Iterable<Customer> findById(Long id);
+    ArrayList<Customer> findByLastName(String name);
+}
